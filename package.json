@@ -1,6 +1,6 @@
 {
     "name": "@gavant/cli",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "The Gavant command line interface.",
     "author": "Gavant Software, Inc.",
     "keywords": [
@@ -10,7 +10,8 @@
     ],
     "main": "./bin/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "release": "release-it"
     },
     "bin": {
         "gavin": "./bin/index.js"
@@ -26,6 +27,9 @@
         "ora": "^7.0.1",
         "replace-in-file": "^7.0.1",
         "yargs": "^17.7.2"
+    },
+    "devDependencies": {
+        "release-it": "^16.2.1"
     },
     "blueprints": {
         "react-app": "gavant/react-app-blueprint"
