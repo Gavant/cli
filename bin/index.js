@@ -8,7 +8,7 @@ const runReactAppBlueprint = require('../blueprints/react-app');
 
 const usage = chalk.cyan(`\nHi, I'm Gavin! 👋\nUsage: gavin [command] [options]`);
 
-// TODO: Would be nice to have a bundler handler syncing the volta version with this one
+// TODO: Would be nice to have a bundler handle syncing the volta version with this one
 const nodeMajor = 18;
 
 const checkNodeVersion = () => {
