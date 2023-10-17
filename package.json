@@ -13,6 +13,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "release": "release-it"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "bin": {
         "gavin": "./bin/index.js"
     },
