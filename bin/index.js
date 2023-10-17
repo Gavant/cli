@@ -8,8 +8,20 @@ const runReactAppBlueprint = require('../blueprints/react-app');
 
 const usage = chalk.cyan(`\nHi, I'm Gavin! 👋\nUsage: gavin [command] [options]`);
 
+// TODO: Would be nice to have a bundler handler syncing the volta version with this one
+const nodeMajor = 18;
+
+const checkNodeVersion = () => {
+    if (parseInt(process.version.split('.')?.[0]?.replace('v', '')) < nodeMajor) {
+        console.log(chalk.redBright('Command failed'))
+        console.log(chalk.redBright(`Gavin formally requests you upgrade to Node ${nodeMajor}+`))
+        process.exit(1)
+    }
+}
+
 yargs(hideBin(process.argv))
     .usage(usage)
+    .middleware(checkNodeVersion)
     .command(
         'create react-app [app-name]',
         'Create a new React application',
@@ -45,5 +57,5 @@ yargs(hideBin(process.argv))
         type: 'boolean',
         description: 'Run with verbose logging',
     })
-    .help()
+    .demandCommand()
     .parse();
