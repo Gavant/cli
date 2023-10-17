@@ -4,12 +4,14 @@ const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const chalk = require('chalk');
 
+const { checkNodeVersion } = require('../utils/node');
 const runReactAppBlueprint = require('../blueprints/react-app');
 
 const usage = chalk.cyan(`\nHi, I'm Gavin! 👋\nUsage: gavin [command] [options]`);
 
 yargs(hideBin(process.argv))
     .usage(usage)
+    .middleware(checkNodeVersion)
     .command(
         'create react-app [app-name]',
         'Create a new React application',
@@ -45,5 +47,5 @@ yargs(hideBin(process.argv))
         type: 'boolean',
         description: 'Run with verbose logging',
     })
-    .help()
+    .demandCommand()
     .parse();
