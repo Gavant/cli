@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs/yargs');
+const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers');
 const chalk = require('chalk');
 

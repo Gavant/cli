@@ -34,3 +34,7 @@ dist-ssr
 # Env
 .env
 .env.*
+
+# Test coverage
+coverage/
+*.lcov

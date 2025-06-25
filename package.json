@@ -10,7 +10,9 @@
     ],
     "main": "./bin/index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
         "release": "release-it"
     },
     "publishConfig": {
@@ -32,7 +34,24 @@
         "yargs": "^17.7.2"
     },
     "devDependencies": {
+        "jest": "^29.7.0",
         "release-it": "^16.2.1"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "bin/**/*.js",
+            "blueprints/**/*.js",
+            "utils/**/*.js",
+            "!**/node_modules/**"
+        ],
+        "testMatch": [
+            "**/__tests__/**/*.js",
+            "**/?(*.)+(spec|test).js"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/tests/setup.js"
+        ]
     },
     "blueprints": {
         "react-app": "gavant/react-app-blueprint"

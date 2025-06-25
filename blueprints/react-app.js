@@ -91,8 +91,10 @@ async function installDependencies(appName, options) {
 
     return runCommand(
         async () => {
-            await exec(`cd ${rootDir} && yarn install`);
-            await exec(`cd ${appDir} && yarn install`);
+            // Increase maxBuffer to handle large yarn output
+            const execOptions = { maxBuffer: 1024 * 1024 * 10 }; // 10MB buffer
+            await exec(`cd ${rootDir} && yarn install`, execOptions);
+            await exec(`cd ${appDir} && yarn install`, execOptions);
         },
         {
             loadingMsg: 'Installing dependencies, this could take awhile...',
