@@ -22,5 +22,3 @@ jobs:
             - run: ls -la
             - run: yarn install
             - run: yarn test
-            - run: yarn test --coverage
-            - run: yarn generate-coverage
