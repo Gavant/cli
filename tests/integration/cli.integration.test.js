@@ -82,7 +82,7 @@ describe('CLI Integration Tests', () => {
 
         child.on('close', (code) => {
             expect(code).toBe(0);
-            expect(stdout.trim()).toBe('0.0.2'); // Should match package.json version
+            expect(stdout.trim()).toBe('0.0.3'); // Should match package.json version
             done();
         });
     }, 10000);
